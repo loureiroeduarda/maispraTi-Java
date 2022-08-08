@@ -1,5 +1,5 @@
 public class Pedido {
-    private String[] itens = new String[10];
+    private Item[] itens = new Item[10];
     private StatusDoPedido status;
     private double valorTotal;
 
@@ -7,11 +7,11 @@ public class Pedido {
         this.status = StatusDoPedido.EFETUADO;
     }
 
-    public String[] getItens() {
+    public Item[] getItens() {
         return itens;
     }
 
-    public void setItens(String[] itens) {
+    public void setItens(Item[] itens) {
         this.itens = itens;
     }
 
@@ -27,9 +27,24 @@ public class Pedido {
         this.valorTotal = valorTotal;
     }
 
-    public void carrinho(String item, double valor, int numeroDoItem) {
-        itens[numeroDoItem] = item;
-        valorTotal += valor;
+    public void adicionarItem(Item item) {
+        for (int i = 0; i < itens.length; i++) {
+            if (itens[i] == null) {
+                itens[i] = item;
+                valorTotal += item.getValor();
+                break;
+            }
+        }
+    }
+
+    public void removeItem(Item item) {
+        for (int i = 0; i < itens.length; i++) {
+            if (itens[i].equals(item)) {
+                itens[i] = null;
+                valorTotal -= item.getValor();
+                break;
+            }
+        }
     }
 
     public void imprimiPedidos() {
