@@ -39,7 +39,7 @@ public class Pedido {
 
     public void removeItem(Item item) {
         for (int i = 0; i < itens.length; i++) {
-            if (itens[i].equals(item)) {
+            if (itens[i] != null && itens[i].equals(item)) {
                 itens[i] = null;
                 valorTotal -= item.getValor();
                 break;
