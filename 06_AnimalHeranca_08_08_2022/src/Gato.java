@@ -6,6 +6,7 @@ public class Gato extends Animal{
     public Gato() {
     }
 
+    @Override
     public void somEmitido() {
         System.out.println("O som emitido pelo Gato é o miado");
     }

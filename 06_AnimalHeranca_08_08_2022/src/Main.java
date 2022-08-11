@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         Animal animal = new Animal();
 
-        Animal leao = new Leao("Simba", "Felino", 190.00, 6);
+        Animal leao = new Leao("Mufasa", "Felino", 190.00, 6);
         System.out.println(leao);
         leao.somEmitido();
 

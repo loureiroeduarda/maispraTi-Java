@@ -6,6 +6,7 @@ public class Onca extends Animal{
     public Onca() {
     }
 
+    @Override
     public void somEmitido() {
         System.out.println("O som emitido pelo onça é o esturro");
     }
