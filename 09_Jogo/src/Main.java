@@ -3,13 +3,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Para iniciar o jogo entre com as coordenadas x,y - utilizando valores entre 1 e 9." + "\n" + "Para encerrar o jogo digite FIM.");
+        Mapa mapaInimigos = new Mapa();
 
+        boolean continuarPartida = true;
         String coordenadas = "";
 
-        while (true) {
+        while (continuarPartida) {
+            System.out.println("Para iniciar o jogo entre com as coordenadas x e y: No formato x,y - utilizando valores entre 0 a 9." + "\n" + "Para encerrar o jogo digite FIM.");
             coordenadas = entrada.nextLine();
-            if (coordenadas.contains("FIM"))
+            if (coordenadas.equals("FIM"))
                 break;
             if (coordenadas.matches("[A-Z-a-z]*")) {
                 System.out.println("Coordenada inválida! Digite nova coordenada.");
@@ -17,13 +19,12 @@ public class Main {
             }
 
             String[] textoSeparado = coordenadas.split(",");
-
+            mapaInimigos.imprimiMapa();
             int x = Integer.parseInt(textoSeparado[0]);
             int y = Integer.parseInt(textoSeparado[1]);
             if (x >= 10 || y >= 10) {
-                System.out.println("Coordenada inválida");
+                System.out.println("Coordenada inválida! Digite uma nova coordenada.");
             }
         }
-
     }
 }
