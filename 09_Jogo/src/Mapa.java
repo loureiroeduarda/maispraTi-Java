@@ -24,4 +24,13 @@ public class Mapa {
             this.imprimiLinha(linha);
         }
     }
+
+    public void disparo (int x, int y) {
+        if (x >= 10 || y >= 10) {
+            System.out.println("Coordenada inválida! Digite uma nova coordenada.");
+        } else {
+            this.mapaInimigo[y][x] = 1;
+            imprimiMapa();
+        }
+    }
 }

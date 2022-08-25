@@ -19,12 +19,10 @@ public class Main {
             }
 
             String[] textoSeparado = coordenadas.split(",");
-            mapaInimigos.imprimiMapa();
             int x = Integer.parseInt(textoSeparado[0]);
             int y = Integer.parseInt(textoSeparado[1]);
-            if (x >= 10 || y >= 10) {
-                System.out.println("Coordenada inválida! Digite uma nova coordenada.");
-            }
+            System.out.println("Coordenada x = " + x + " e Coordenada y = " + y);
+            mapaInimigos.disparo(x, y);
         }
     }
 }
