@@ -1,8 +1,11 @@
 public class Mapa {
     int[][] mapaInimigo;
+    Elemento[] elementos;
 
     public Mapa() {
         this.mapaInimigo = new int[10][10];
+        this.elementos = new Elemento[5];
+        gerarElementos();
     }
 
     public void imprimiLinha(int[] linha) {
@@ -23,9 +26,12 @@ public class Mapa {
         for (int[] linha : this.mapaInimigo) {
             this.imprimiLinha(linha);
         }
+        for (Elemento elemento : this.elementos) {
+            System.out.println(elemento);
+        }
     }
 
-    public void disparo (int x, int y) {
+    public void disparo(int x, int y) {
         if (x >= 10 || y >= 10) {
             System.out.println("Coordenada inválida! Digite uma nova coordenada.");
         } else {
@@ -33,4 +39,11 @@ public class Mapa {
             imprimiMapa();
         }
     }
+
+    public void gerarElementos() {
+        for (int i = 0; i < this.elementos.length; i++) {
+            this.elementos[i] = new Elemento();
+        }
+    }
+
 }
