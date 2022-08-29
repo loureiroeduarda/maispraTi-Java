@@ -23,8 +23,6 @@ public class Main {
             int y = Integer.parseInt(textoSeparado[1]);
             System.out.println("Coordenada x = " + x + " e Coordenada y = " + y);
             System.out.println("====================================================");
-            mapaInimigos.comparaDistancia(x, y);
-            System.out.println("====================================================");
             mapaInimigos.disparo(x, y);
         }
     }

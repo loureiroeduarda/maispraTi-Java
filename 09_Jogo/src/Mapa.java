@@ -32,7 +32,16 @@ public class Mapa {
         if (x >= 10 || y >= 10) {
             System.out.println("Coordenada inválida! Digite uma nova coordenada.");
         } else {
-            this.mapaInimigo[y][x] = 1;
+            double menorDistancia = 1000;
+            for (Elemento elemento : elementos) {
+                if (elemento.isVivo()) {
+                    double resultadoDistancia = elemento.caculaDistancia(x, y);
+                    menorDistancia = (resultadoDistancia < menorDistancia) ? resultadoDistancia : menorDistancia;
+                }
+            }
+            System.out.println("A distância do inimigo é: " + menorDistancia);
+            System.out.println("====================================================");
+            this.mapaInimigo[y][x] = (menorDistancia > 0) ? 1 : 2;
             imprimiMapa();
         }
     }
@@ -41,16 +50,5 @@ public class Mapa {
         for (int i = 0; i < this.elementos.length; i++) {
             this.elementos[i] = new Elemento();
         }
-    }
-
-    public void comparaDistancia(int coordenadaX, int coodernadaY) {
-        double menorDistancia = 1000;
-        for(int i = 0; i < elementos.length; i++) {
-            double resultadoDistancia = this.elementos[i].caculaDistancia(coordenadaX,coodernadaY);
-            if(resultadoDistancia < menorDistancia) {
-                menorDistancia = resultadoDistancia;
-            }
-        }
-        System.out.println("A distância do inimigo é: " + menorDistancia);
     }
 }
