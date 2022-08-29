@@ -26,9 +26,6 @@ public class Mapa {
         for (int[] linha : this.mapaInimigo) {
             this.imprimiLinha(linha);
         }
-        for (Elemento elemento : this.elementos) {
-            System.out.println(elemento);
-        }
     }
 
     public void disparo(int x, int y) {
@@ -46,4 +43,14 @@ public class Mapa {
         }
     }
 
+    public void comparaDistancia(int coordenadaX, int coodernadaY) {
+        double menorDistancia = 1000;
+        for(int i = 0; i < elementos.length; i++) {
+            double resultadoDistancia = this.elementos[i].caculaDistancia(coordenadaX,coodernadaY);
+            if(resultadoDistancia < menorDistancia) {
+                menorDistancia = resultadoDistancia;
+            }
+        }
+        System.out.println("A distância do inimigo é: " + menorDistancia);
+    }
 }
