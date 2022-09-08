@@ -11,8 +11,7 @@ public class Main {
         while (continuarPartida) {
             System.out.println("Para iniciar o jogo entre com as coordenadas x e y: No formato x,y - utilizando valores entre 0 a 9." + "\n" + "Para encerrar o jogo digite FIM.");
             coordenadas = entrada.nextLine();
-            if (coordenadas.equals("FIM"))
-                break;
+            if (coordenadas.equals("FIM")) break;
             if (coordenadas.matches("[A-Z-a-z]*")) {
                 System.out.println("Coordenada inválida! Digite nova coordenada.");
                 continue;
@@ -21,9 +20,14 @@ public class Main {
             String[] textoSeparado = coordenadas.split(",");
             int x = Integer.parseInt(textoSeparado[0]);
             int y = Integer.parseInt(textoSeparado[1]);
-            System.out.println("Coordenada x = " + x + " e Coordenada y = " + y);
-            System.out.println("====================================================");
-            mapaInimigos.disparo(x, y);
+            if (x >= 10 || y >= 10) {
+                System.out.println("Coordenada inválida! Digite uma nova coordenada.");
+            } else {
+                System.out.println("Coordenada x = " + x + " e Coordenada y = " + y);
+                System.out.println("====================================================");
+                continuarPartida = mapaInimigos.disparo(x, y);
+                mapaInimigos.imprimiMapa();
+            }
         }
     }
 }
